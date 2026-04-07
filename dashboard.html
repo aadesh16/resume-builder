@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Dashboard</title>
+<link rel="stylesheet" href="/static/css/style.css">
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>Resume Dashboard</h1>
+
+<a href="/create">
+<button>Create New Resume</button>
+</a>
+
+<hr>
+
+<h2>Your Resumes</h2>
+
+<table border="1" width="100%" cellpadding="10">
+
+<tr>
+<th>ID</th>
+<th>Name</th>
+<th>Email</th>
+<th>Actions</th>
+</tr>
+
+{% for resume in resumes %}
+
+<tr>
+
+<td>{{resume.id}}</td>
+<td>{{resume.name}}</td>
+<td>{{resume.email}}</td>
+
+<td>
+
+<a href="/view/{{resume.id}}">
+<button>View</button>
+</a>
+
+<a href="/download/{{resume.id}}">
+<button>Download PDF</button>
+</a>
+
+</td>
+
+</tr>
+
+{% endfor %}
+
+</table>
+
+</div>
+
+</body>
+</html>
